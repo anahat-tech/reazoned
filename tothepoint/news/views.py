@@ -157,7 +157,7 @@ def article_detail(request):
         article = Article(article_link)
         article.download()
         article.parse()
-        #nltk.download('punkt')
+        nltk.download('punkt')
         article.nlp()
     return render(request, "news/article.html", {"article": article, "a": article_link})
 
