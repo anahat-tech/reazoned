@@ -1,0 +1,51 @@
+{% extends 'news/base.html' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <center><h1>To the Point News</h1>
+        </center>
+    </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-9">
+                    <div class="list-group">
+                        {% for object in object_list %}
+                        <form method="POST" action="article/" target="_blank">
+                            {% csrf_token %}
+                            <input type="hidden" name="linked" value="{{ object.url }}">
+                            <!--<label>{{ object.title }}</label> -->
+                            <input class="list-group-item list-group-item-action fw-bold" aria-current="true" type="submit" name="clicked" value='{{ object.title }}'>
+                        </form>
+                        {% endfor %}
+                     </div>
+                 </div>
+                <div class="col-3 border width">
+                    <h5>From the Editors</h5>
+                    <ul>
+                        <li>
+                            <a href="">First Blog </a>
+                        </li>
+                        <li>
+                            <a href="">Second Blog </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+            <!--{% for object in object_list %}
+            <div class="list-group">
+            <div class="list-group-item" style="padding: 5px; margin: 20px;>
+                <form method="POST" action="article/">
+                    {% csrf_token %}
+                    <input type="hidden" name="linked" value="{{ object.url }}">
+                    <label>{{ object.title }}</label>
+                    <input class="btn btn-primary" type="submit" name="clicked" value='Read More'>
+                </form>
+            </div>
+            </div>
+            {% endfor %}
+            -->
+
+
+{% endblock %}

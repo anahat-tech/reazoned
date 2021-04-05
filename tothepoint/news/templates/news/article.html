@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article.title }}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <a class="navbar-brand text-light" href="/index">Reazoned</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-light" href="/index">Top Stories<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/world">World</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/business">Business</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/tech">Tech</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link  text-light" href="/sports">Sports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/entertainment">Entertainment</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/opinion">Opinion</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+<br>
+    <div class="container">
+        <div class="row fluid">
+
+            <h3> {{ article.title }} </h3> <br>
+            <br>
+                <div class="col-6 fluid">
+                    <div style="text-align: left"><img src="{{ article.top_image }}" width="300" height="auto"></div>
+                </div>
+                <div class="col-6 border margin">
+                    <div style="text-align: left, width: 40%">{{ article.summary }}
+                    <br>
+                    <br>
+                    <a href="{{ a }}">Read more</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+</body>
+</html>

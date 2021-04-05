@@ -1,0 +1,40 @@
+{% extends 'news/base.html' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <center><h1>Think !</h1>
+        </center>
+    </div>
+        <div class="container-fluid">
+            <div class="list-group d-flex w-100 justify-content-between ">
+                {% for object in object_list %}
+                <form method="POST" action="article/" target="_blank">
+                    {% csrf_token %}
+                    <input type="hidden" name="linked" value="{{ object.url }}">
+                    <!--<label>{{ object.title }}</label> -->
+                    <input class="list-group-item list-group-item-action" aria-current="true" type="submit" name="clicked" value='{{ object.title }}'>
+                </form>
+                {% endfor %}
+            </div>
+            </div>
+        <!--<div class="container">
+            <div class="card-column">
+            <div class="card-deck" style="padding: 10px; margin: 20px;">
+            {% for object in object_list %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ object.image }}" alt="Card image cap">
+            <div class="card-body">
+                <form method="POST" action="article/">
+                    {% csrf_token %}
+                    <input type="hidden" name="linked" value="{{ object.url }}">
+                    <label>{{ object.title }}</label>
+                    <input class="btn btn-primary" type="submit" name="clicked" value='Read More'>
+                </form>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
+    </div> -->
+
+{% endblock %}
